@@ -126,6 +126,10 @@ h3, h4, p, a {
 li{
     list-style: none;
 }
+
+.exemple {
+    font-style: italic;
+}
 /************ LETTER CAT ***************/
 .letter-cat{
     width: 100%;
