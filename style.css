@@ -140,6 +140,7 @@ li{
 
 .letter-cat.closed{
     top: -13px;
+    padding: 15px;
 }
 
 .letter-cat__lettre{
@@ -169,6 +170,7 @@ li{
 .letter-cat.closed .letter-cat__lettre{
     width: 100%;
     text-align: left;
+    line-height: 27px;
     padding-left: 2.5vw;
 
     transition: width 400ms ease;
