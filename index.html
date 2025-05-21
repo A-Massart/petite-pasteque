@@ -3,500 +3,531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La petite pastèque</title>
+    <title>Passtech</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="src/pasteque_logo.png">
+
 </head>
 <body>
-    <div class="background"></div>
+    <header>
+        <div id="header__top">
+            <img id="header__top__img" src="src/pasteque_logo.png">
+            <h1 id="header__top__title">passtech</h1>
+            <input class="border-properties" id="header__top__search-bar" type="text" placeholder="Rechercher">
+        </div>
 
-    <div id="title">
-        <h1 class="sigmar" id="dynamicTitle">La petite pastèque</h1>
-        <h2 class="quicksand">Pour mieux comprendre les technologies d'aujourd'hui.</h2>
-    </div>
+        <div class="border-properties" id="header__bottom">
+            <div id="header__bottom__filters__buttons" >
+                <div class="border-properties" id="filter_domaine">
+                    <button id="filter_domaine__button">Domaine</button>
+                    <p>0</p>
+                </div>
+                <div class="border-properties" id="filter_usage">
+                    <button id="filter_usage__button">Usage</button>
+                    <p>0</p>
+                </div>
+                <div class="border-properties" id="filter_ia">
+                    <button id="filter_ia__button">
+                        <span class="ia-long-title">Lié à l’intelligence artificielle</span>
+                        <span class="ia-short-title">Lié à l’IA</span>
+                      </button>
+                    <p>0</p>
+                </div>
+            </div>
+            <div id="header__bottom__filters__content">
+                <div class="border-properties" id="filter_domaine__content">
+                    <button class="quicksand" id="domaine__content__none">Aucun</button>
+                    <button class="quicksand" data-filter="domaine" data-value="informatique">Informatique, Développement, <br>Sécurité & Protection</button>
+                    <button class="quicksand" data-filter="domaine" data-value="internet">Internet, Réseau & Communication</button>
+                    <button class="quicksand" data-filter="domaine" data-value="finance">Cryptographie & Finance</button>
+                    <button class="quicksand" data-filter="domaine" data-value="divertissement">Divertissement</button>
+                    <button class="quicksand" data-filter="domaine" data-value="donnees">Données & Intelligence</button>
+                    <button class="quicksand" data-filter="domaine" data-value="objets-physiques">Objets physiques</button>
+                    <button class="quicksand" data-filter="domaine" data-value="objets-immateriels">Objets immatérielles</button>
 
-    <div class="bottom-section">
-        <h2 class="left-position">Glossaire</h2>
+                </div>
 
-        <ul id="menu">
-            <!-- LETTRE A -->
-            <li class="letter-cat closed">
+                <div class="border-properties" id="filter_usage__content">
+                    <button class="quicksand" id="usage__content__none">Aucun</button>
+                    <button class="quicksand" data-filter="usage" data-value="quotidien">Technologies du quotidien</button>
+                    <button class="quicksand" data-filter="usage" data-value="avance">Technologies avancées</button>
+                </div>
 
-                <h3 class="letter-cat__lettre">A</h3>
+                <div class="border-properties" id="filter_ia__content">
+                    <button class="quicksand" id="ia__content__none">Aucun</button>
+                    <button class="quicksand" data-filter="ia" data-value="yes">Oui</button>
+                    <button class="quicksand" data-filter="ia" data-value="no">Non</button>
+                </div>
+            </div>
+        </div>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Adresse IP-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Adresse IP
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Une adresse IP (Internet Protocol) est un identifiant unique attribué à chaque appareil connecté à Internet 
-                                (ordinateur, smartphone, routeur, etc.). Elle permet aux données de circuler correctement sur le réseau, 
-                                un peu comme une adresse postale pour le courrier.
-                            </p>
-                            <p class="exemple">
-                                Quand tu tapes "www.google.com" dans ton navigateur, ton ordinateur utilise des <a href="index.html/#ServeurDNS">serveurs DNS</a> pour 
-                                traduire cette adresse en une adresse IP (ex. : 172.217.19.14) et ainsi accéder au site web.
-                            </p>
-                        </div>
-                    </li>
+    </header>
 
-                    <!--Algorithme-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Algorithme
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Un algorithme est une suite d’instructions permettant d’accomplir une tâche ou de résoudre un problème. 
-                                Il est utilisé en informatique, en mathématiques, en cryptographie, etc.
-                            </p>
-                            <p class="exemple">
-                                Google utilise des algorithmes pour classer les résultats de recherche en fonction de leur pertinence.
-                                Netflix analyse ton historique de visionnage pour recommander des films via un algorithme de recommandation.
-                            </p>
-                        </div>
-                    </li>
+    <nav>
+    </nav>
 
-                </ul>
-            </li>
+    <main>
+        <section id="A">
+            <div class="section__content border-properties" data-domaine="informatique internet donnees" data-usage="quotidien" data-ia="no">
+                <h2>Adresse IP</h2>
+                <img src="src/content_img/AdresseIP.jpg">
+                <p>
+                    Une adresse IP (Internet Protocol) est un identifiant unique attribué à chaque appareil connecté à <a href="#internet">Internet</a>
+                    (ordinateur, smartphone, routeur, etc.). Elle permet aux données de circuler correctement sur le réseau,
+                    un peu comme une adresse postale pour le courrier.<br>
+                    Cette norme a été créée dans les années 1970 avec l’émergence du protocole TCP/IP, utilisé par ARPANET, l’ancêtre d’Internet.
+                </p>
+                <p class="exemple">
+                    Ton smartphone reçoit une adresse IP temporaire quand il se connecte au <a href="#wifi">Wi-Fi</a>.<br>
+                    Les sites web ont une adresse IP qu’un navigateur traduit grâce au <a href="#dns">DNS</a>.
+                    Quand tu tapes "www.google.com" dans ton navigateur, ton ordinateur utilise des serveurs DNS pour
+                    traduire cette adresse en une adresse IP (ex. : 172.217.19.14) et ainsi accéder au site web.<br>
 
-            <!-- LETTRE B -->
-            <li class="letter-cat closed">
+                </p>
+            </div>
 
-                <h3 class="letter-cat__lettre">B</h3>
+            <div class="section__content border-properties" data-domaine="informatique internet donnees" data-usage="quotidien" data-ia="yes">
+                <h2>Algorithme</h2>
+                <img src="src/content_img/algorithme.png">
+                <p>
+                    Un algorithme est une suite d’instructions logiques pour résoudre un problème.<br>
+                    Le mot vient du mathématicien perse Al-Khwarizmi au IXe siècle. Aujourd’hui, les algorithmes sont au cœur des logiciels.
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Bitcoin-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Bitcoin
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Le Bitcoin est une monnaie numérique décentralisée, sans banque centrale, qui fonctionne grâce à la blockchain. Il permet d’effectuer des paiements sécurisés, transparents et irréversibles.
-                            </p>
-                            <p class="exemple">
-                                Un commerçant peut accepter le Bitcoin comme moyen de paiement sans passer par un intermédiaire bancaire.
-                            </p>
-                        </div>
-                    </li>
-                    <!--Blockchain-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Blockchain
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                La blockchain est un registre numérique décentralisé qui enregistre des transactions de manière sécurisée et transparente. Chaque bloc de données est relié aux précédents, ce qui rend la falsification quasi impossible.
-                            </p>
-                            <p class="exemple">
-                                La blockchain du Bitcoin enregistre toutes les transactions de manière publique et infalsifiable.
-                            </p>
-                        </div>
-                    </li>
-                    <!--Bluetooth-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Bluetooth
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Le Bluetooth est une technologie sans fil qui permet de transmettre des données entre appareils à courte distance.
-                            </p>
-                            <p class="exemple">
-                                Connecter une enceinte Bluetooth à son téléphone pour écouter de la musique sans fil.
-                            </p>
-                        </div>
-                    </li>
-                    <!--BigData-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Big Data
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Le Big Data désigne l’ensemble des données massives générées chaque jour par les interactions numériques (réseaux sociaux, capteurs, transactions bancaires, etc.). Ces données sont ensuite analysées pour en extraire des informations précieuses.
-                            </p>
-                            <p class="exemple">
-                                Amazon utilise le Big Data pour analyser les comportements d’achat et proposer des recommandations personnalisées.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+                </p>
+                <p class="exemple">
+                    L’algorithme de YouTube choisit quelles vidéos te proposer en fonction de tes préférences.<br>
+                    Un GPS utilise un algorithme pour calculer l’itinéraire le plus rapide.
+                </p>
+            </div>
 
-            <!-- LETTRE C -->
-            <li class="letter-cat closed">
+            <div class="section__content border-properties" data-domaine="informatique divertissement donnees objets-physiques" data-usage="avance" data-ia="yes">
+                <h2>AlphaGo</h2>
+                <img src="src/content_img/alphago.jpg">
+                <p>
+                    AlphaGo est une <a href="#ia">IA</a> créée par DeepMind en 2015 pour jouer au jeu de Go, considéré comme plus complexe que les échecs.<br>
+                    C’est la première IA à battre un champion mondial humain, Lee Sedol, en 2016.
 
-                <h3 class="letter-cat__lettre">C</h3>
+                </p>
+                <p class="exemple">
+                    AlphaGo prédit les meilleurs coups à partir de millions de parties.<br>
+                    Son architecture combine <a href="deep-learning">deep learning</a> et apprentissage par renforcement (basée sur la méthode d'essai-erreur,
+                    l’agent autonome explore différentes actions pour découvrir celles qui donnent les meilleurs résultats selon un objectif fixé).
+                </p>
+            </div>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Cryptomonnaie-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Cryptomonnaie
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Une cryptomonnaie est une monnaie numérique qui fonctionne grâce à la blockchain. Contrairement aux monnaies traditionnelles, elle n’est pas contrôlée par une banque centrale.
-                            </p>
-                            <p class="exemple">
-                                Bitcoin, Ethereum, et Dogecoin sont des cryptomonnaies populaires.
-                            </p>
-                        </div>
-                    </li>
-                    <!--Cybersécurité-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Cybersécurité
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                La cybersécurité regroupe les pratiques et technologies visant à protéger les systèmes informatiques contre les attaques, piratages et fuites de données.
-                            </p>
-                            <p class="exemple">
-                                Les entreprises utilisent des pare-feu et des antivirus pour sécuriser leurs réseaux.
-                            </p>
-                        </div>
-                    </li>
-                    <!--Cookies-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Cookies informatique
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Eh non ce n'est pas un gâteau !
-                            </p>
-                            <p class="exemple">
-                                Quand c'est gratuit, c'est toi le produit !
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+            <div class="section__content border-properties" id="antivirus" data-domaine="informatique internet donnees objets-immateriels" data-usage="quotidien" data-ia="no">
+                <h2>Antivirus</h2>
+                <img src="src/content_img/antivirus.jpeg">
+                <p>
+                    Un antivirus est un programme conçu pour détecter et neutraliser des logiciels malveillants.<br>
+                    Le premier antivirus est apparu dans les années 1980 pour contrer les <a href="#virus">virus</a> sur disquettes.<br>
+                </p>
+                <p class="exemple">
+                    Norton ou Avast sont des antivirus populaires depuis des décennies.<br>
+                    Un antivirus empêche les <a href="#virus">ransomwares</a> de chiffrer vos fichiers.
+                </p>
+            </div>
 
-            <!-- LETTRE D -->
-            <li class="letter-cat closed">
+            <div class="section__content border-properties" data-domaine="internet objets-immateriels" data-usage="quotidien" data-ia="no">
+                <h2>AirDrop</h2>
+                <img src="src/content_img/airdrop_apple.jpg">
+                <p>
+                    Lancé par Apple en 2011, ce service permet d’échanger des fichiers entre appareils Apple via <a href="#bluetooth">Bluetooth</a> et <a href="wifi">Wi-Fi</a>.<br>
+                    C’est une solution simple née du besoin de partage rapide sans câble.
+                </p>
+                <p class="exemple" style="margin-bottom: 20px;">
+                    Tu envoies des photos depuis ton iPhone vers ton iMac sans passer par <a href="#internet">internet</a>.<br>
+                    Des étudiants s’en servent pour échanger des documents en classe.
+                </p>
 
-                <h3 class="letter-cat__lettre">D</h3>
+                <img src="src/content_img/airdrop_crypto.png">
+                <p>
+                    En <a href="#cryptomonnaie">cryptomonnaie</a>, le terme "airdrop" a un tout autre sens.
+                    Il corresond à l'envoi gratuit de jetons cryptomonnaies ou de <a href="#nft">NFT</a> à des
+                    utilisateurs, souvent pour promouvoir un projet ou récompenser une communauté.
+                </p>
+                <p class="exemple">
+                    Un projet envoie des <a href="#token">tokens</a> aux détenteurs d’une autre cryptomonnaie.<br>
+                    Un utilisateur reçoit un NFT via airdrop après avoir utilisé une plateforme.
+                </p>
+            </div>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Deep Learning-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Deep Learning
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Le Deep Learning est une branche de l’intelligence artificielle qui permet aux machines d’apprendre par elles-mêmes en imitant le fonctionnement du cerveau humain grâce à des réseaux de neurones artificiels.
-                            </p>
-                            <p class="exemple">
-                                Les assistants vocaux comme Siri et Alexa comprennent et répondent aux commandes vocales grâce au Deep Learning.
-                                La reconnaissance faciale des smartphones utilise cette technologie.                                    
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+            <div class="section__content border-properties" data-domaine="informatique internet donnees objets-physiques" data-usage="quotidien" data-ia="no">
+                <h2>AirTag</h2>
+                <img src="src/content_img/airtag.jpg">
+                <p>
+                    Lancé par Apple en 2021, l’AirTag est un petit traceur <a href="#bluetooth">Bluetooth</a> qui permet de localiser des objets perdus via le réseau d’appareils Apple.<br>
+                    Il s’inscrit dans l’évolution des objets connectés personnels.
+                </p>
+                <p class="exemple">
+                    Tu retrouves tes clés perdues grâce à l’AirTag qui sonne quand tu les cherches.<br>
+                    Une valise égarée à l’aéroport peut être retrouvée grâce au signal de l’AirTag.
+                </p>
+            </div>
 
-            <!-- LETTRE I -->
-            <li class="letter-cat closed">
+        </section>
 
-                <h3 class="letter-cat__lettre">I</h3>
+        <section id="B">
+            <div class="section__content border-properties" data-domaine="informatique internet donnees finance" data-usage="quotidien" data-ia="no">
+                <h2>Big Data</h2>
+                <img src="src/content_img/bigdata.png">
+                <p>
+                    Le terme “Big Data” est apparu dans les années 2000 pour désigner l’explosion du volume de données générées
+                    par <a href="#internet">Internet</a> et les objets connectés.<br>
+                    Il s’appuie sur de nouveaux outils d’analyse capables de traiter ces masses d’informations.
+                </p>
+                <p class="exemple">
+                    Amazon analyse le Big Data pour te proposer des produits ciblés.<br>
+                    Les scientifiques étudient des données climatiques massives pour anticiper le réchauffement.
+                </p>
+            </div>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Intelligence Artificielle (IA)-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Intelligence Artificielle (IA)
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                L’IA désigne les technologies qui permettent aux machines d’imiter des comportements humains comme la reconnaissance d’images, la prise de décision et l’apprentissage.
-                            </p>
-                            <p class="exemple">
-                                ChatGPT est une IA qui répond aux questions et assiste dans diverses tâches.                                
-                            </p>
-                        </div>
-                    </li>
-                    <!--Internet-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Internet
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                L’Internet est un réseau mondial interconnectant des millions d’ordinateurs et d’appareils pour partager des informations et des services.
+            <div class="section__content border-properties" data-domaine="informatique internet finance divertissement donnees objets-immateriels" data-usage="avance" data-ia="no" id="blockchain">
+                <h2>Blockchain</h2>
+                <img src="src/content_img/blockchain.jpg">
+                <p>
+                    La blockchain est une technologie de stockage et de transmission d’informations,
+                    transparente et sécurisée, sans autorité centrale. Elle fonctionne comme un grand
+                    registre numérique où chaque information (appelée transaction) est regroupée dans un bloc.
+                    Chaque nouveau bloc est lié au précédent de manière cryptographique, formant une chaîne
+                    (d’où le nom blockchain, "chaîne de blocs"). Une fois un bloc ajouté, il ne peut plus être
+                    modifié, ce qui rend la blockchain infalsifiable. Elle est décentralisée : des milliers
+                    d’ordinateurs dans le monde (appelés nœuds) vérifient ensemble l’exactitude des informations.
+                </p>
+                <p class="exemple">
+                    Une transaction en Ether est enregistrée sur la blockchain Ethereum, et peut être consultée publiquement.<br>
+                    Une œuvre numérique en NFT est authentifiée et tracée grâce à la blockchain.
+                </p>
+            </div>
 
-                                L’Internet trouve ses origines dans les années 1960, en pleine Guerre froide. Les États-Unis cherchaient un moyen de communication résilient en cas d’attaque nucléaire. En 1969, l’ARPANET, un réseau expérimental reliant quatre universités américaines, est créé par le département de la Défense des États-Unis.
-                                
-                                Dans les années 1980, l’ARPANET évolue et s’ouvre aux institutions civiles et scientifiques. En 1991, Tim Berners-Lee invente le World Wide Web (WWW), qui permet de naviguer facilement sur Internet avec des sites et des liens hypertextes.
+            <div class="section__content border-properties" id="bluetooth" data-domaine="internet objets-immateriels" data-usage="quotidien" data-ia="no">
+                <h2>Bluetooth</h2>
+                <img src="src/content_img/bluetooth.jpg">
+                <p>
+                    Bluetooth, créé en 1994 par le suédois Sven Mattisson et le néerlandais Jaap Haartsen l'ont développée au sein de
+                    l'entreprise suédoise Ericsson, est une technologie sans fil à courte portée.<br>
+                    Son nom vient du roi viking Harald à la dent bleu (en danois Harald Blåtand, en anglais Harald Bluetooth),
+                    unificateur des tribus nordiques, métaphore de la connexion entre appareils.<br>
+                    Le symbole du bluetooth regroupe les anciennes runes nordiques H et B.
+                </p>
+                <p class="exemple">
+                    Ton enceinte Bluetooth peut se connecter sans fil et sans <a href="#internet">internet</a> à ton téléphone.<br>
+                    Une montre connectée envoie les données de tes pas à ton smartphone grâce au Bluetooth.
+                </p>
+            </div>
+        </section>
 
-                                À partir des années 2000, l’Internet devient grand public avec l’essor du haut débit, des réseaux sociaux (Facebook, Twitter, YouTube) et du commerce en ligne (Amazon, eBay). Aujourd’hui, il est omniprésent grâce aux smartphones, à l’intelligence artificielle et à l’Internet des objets (IoT).
-                            </p>
-                            <p class="exemple">
-                                Envoyer un email, faire une recherche Google, regarder une vidéo YouTube.
-                            </p>
-                        </div>
-                    </li>
-                    <!--Internet des objets (IoT)-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Internet des objets (IoT)
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                L’IoT regroupe tous les objets connectés qui communiquent via Internet pour automatiser certaines tâches.
-                            </p>
-                            <p class="exemple">
-                                Une montre connectée qui mesure le rythme cardiaque et envoie les données sur une application mobile.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+        <section id="C">
+            <div class="section__content border-properties" id="cryptomonnaie" data-domaine="internet finance donnees objets-immateriels" data-usage="quotidien" data-ia="no">
+                <h2>Cryptomonnaie</h2>
+                <img src="src/content_img/cryptomonnaie.jpeg">
+                <p>
+                    Les cryptomonnaies sont apparues avec le Bitcoin en 2009, créé par une personne (ou groupe)
+                    sous le pseudonyme Satoshi Nakamoto.<br>
+                    Elles fonctionnent sans banque centrale, grâce à la blockchain.<br>
+                    Certaines, appelées stablecoins, sont liées à une monnaie traditionnelle (comme l’euro ou le dollar)
+                    pour éviter les fortes variations de prix.<br>
+                    Bitcoin est la première. Ethereum, apparu en 2015, introduit les "<a href="#smart-contract">smart contracts</a>".
+                </p>
+                <p class="exemple">
+                    Tu achètes un <a href="#nft">NFT</a> en payant avec de l’Ethereum.<br>
+                    Bitcoin peut être stocké dans un <a href="#wallet">wallet numérique personnel</a>.<br>
+                    L’USDC est un stablecoin, sa valeur reste proche de 1 dollar.
+                </p>
+            </div>
 
-            <!-- LETTRE M -->
-            <li class="letter-cat closed">
+            <div class="section__content border-properties" data-domaine="informatique internet donnees" data-usage="quotidien" data-ia="no">
+                <h2>Cybersécurité</h2>
+                <img src="https://i0.wp.com/www.ledecodeur.ch/wp-content/uploads/2017/10/524a7f30-057c-42e1-8dbe-c1a492c2f1f5.png?resize=1250%2C2269&ssl=1">
+                <p>
+                    La cybersécurité est née avec l’<a href="">informatique</a>, mais a pris de l’ampleur depuis les années 2000 face aux
+                    <a href="">cyberattaques</a> croissantes.<br>
+                    Elle protège les données, les systèmes et les utilisateurs.
+                </p>
+                <p class="exemple">
+                    Une entreprise met en place un pare-feu pour bloquer les intrusions.<br>
+                    L’ANSSI (Agence nationale de la sécurité des systèmes d'information) est l’agence française en charge de la cybersécurité nationale.
+                </p>
+            </div>
+        </section>
+        <section id="D">
+            <div class="section__content border-properties" id="deep-learning" data-domaine="informatique donnees" data-usage="avance" data-ia="yes">
+                <h2>Deep Learning</h2>
+                <img src="https://habefast.ch/wp-content/uploads/2021/08/Illustration-Deep-Learning-V1.jpg">
+                <p>
+                    Le deep learning, popularisé dans les années 2010, est un sous-domaine de l’<a href="#ia">IA</a> qui simule le cerveau humain à l’aide de réseaux de neurones artificiels.<br>
+                    Ses racines remontent aux années 1950 avec les premiers perceptrons.
+                </p>
+                <p class="exemple">
+                    Un filtre Instagram reconnaît automatiquement les visages.<br>
+                    Les voitures autonomes interprètent les panneaux grâce au deep learning.
+                </p>
+            </div>
 
-                <h3 class="letter-cat__lettre">M</h3>
+            <div class="section__content border-properties" id="dns" data-domaine="informatique internet objets-physiques" data-usage="quotidien" data-ia="no">
+                <h2>DNS</h2>
+                <img src="https://www.itrelease.com/wp-content/uploads/2021/11/What-is-domain-name-server-DNS.jpg">
+                <p>
+                    Le DNS (Domain Name System) est un système qui traduit les noms de sites web (comme google.com) en adresses IP compréhensibles par les ordinateurs.
+                </p>
+                <p class="exemple">
+                    Quand tu tapes un site dans ton navigateur, le DNS trouve son adresse IP.<br>
+                    Sans DNS, tu devrais retenir des suites de chiffres à la place des noms de domaine.
+                </p>
+            </div>
+        </section>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Métavers-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Métavers
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Le métavers est un monde virtuel immersif où les utilisateurs interagissent sous forme d’avatars grâce à la réalité virtuelle et augmentée.
-                            </p>
-                            <p class="exemple">
-                                Meta (ex-Facebook) développe Horizon Worlds, un métavers où les gens peuvent se retrouver pour discuter, jouer ou travailler.                                  
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+        <section id="I">
+            <div class="section__content border-properties" data-domaine="donnees" data-usage="quotidien" data-ia="yes" id="ia">
+                <h2>Intelligence Artificielle</h2>
+                <img src="https://www.wizishop.fr/media/65a80345b8dd602cb72e9be4/v1/chronologie-ia-wizishop.jpg">
+                <p>
+                    L’IA, terme apparu en 1956, désigne les systèmes capables d’accomplir des tâches qui nécessitent normalement l’intelligence humaine.<br>
+                    Elle est passée de simples règles à des modèles capables d’apprendre (machine learning).
+                </p>
+                <p class="exemple">
+                    Un chatbot comprend tes questions et y répond automatiquement.<br>
+                    L’IA classe tes e-mails selon leur importance.
+                </p>
+            </div>
 
-            <!-- LETTRE N -->
-            <li class="letter-cat closed">
+            <div class="section__content border-properties" id="internet" data-domaine="informatique internet finance divertissement donnees objets-immateriels" data-usage="quotidien" data-ia="yes">
+                <h2>Internet</h2>
+                <img src="https://i.pinimg.com/originals/15/54/3b/15543b5ab978c25458da7c6b046dd535.jpg">
+                <p>
+                    Internet est né dans les années 1960-70 sous le nom d’ARPANET, un projet militaire américain reliant les universités pour échanger des données.<br>
+                    Le réseau s’est ouvert au public dans les années 1990 et est devenu mondial.
+                </p>
+                <p class="exemple">
+                    Tu te connectes à un site web via une adresse URL.<br>
+                    Les mails transitent par des serveurs connectés à Internet.
+                </p>
+            </div>
 
-                <h3 class="letter-cat__lettre">N</h3>
+            <div class="section__content border-properties" data-domaine="informatique internet objets-physiques" data-usage="quotidien" data-ia="no">
+                <h2>Internet des objets</h2>
+                <img src="https://cdn.futura-sciences.com/sources/images/Internet%20des%20Objets.jpeg">
+                <p>
+                    L’idée d’objets connectés date des années 1980, mais le terme “Internet des objets” est popularisé en 1999.<br>
+                    Il désigne les appareils intelligents interconnectés capables de communiquer via <a href="#internet">Internet</a>.
+                </p>
+                <p class="exemple">
+                    Un bracelet connecté qui mesure ton sommeil.<br>
+                    Une maison intelligente allume les lumières selon tes habitudes.
+                </p>
+            </div>
+        </section>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--NFT (Non-Fungible Token)-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">NFT (Non-Fungible Token)
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Un NFT est un certificat numérique unique enregistré sur une blockchain, qui prouve l’authenticité et la propriété d’un fichier numérique (image, vidéo, musique, etc.).
-                            </p>
-                            <p class="exemple">
-                                Meta (ex-Facebook) développe Horizon Worlds, un métavers où les gens peuvent se retrouver pour discuter, jouer ou travailler.                                  
-                            </p>
-                        </div>
-                    </li>
+        <section id="M">
+            <div class="section__content border-properties" data-domaine="internet divertissement objets-immateriels" data-usage="avance" data-ia="no">
+                <h2>Métavers</h2>
+                <img src="https://www.extremeit.com/wp-content/uploads/2022/01/article23-1.jpg">
+                <p>
+                    Le mot “métavers” vient du roman de science-fiction <em>Snow Crash</em> (1992).<br>
+                    C’est un monde virtuel immersif et interactif, rendu possible aujourd’hui par la VR, l’AR et la blockchain.
+                </p>
+                <p class="exemple">
+                    Tu crées un avatar pour visiter un musée dans le métavers.<br>
+                    Des marques y vendent des vêtements virtuels.
+                </p>
+            </div>
+        </section>
 
-                    <!--NFC (Near Field Communication)-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">NFC (Near Field Communication)
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Le NFC est une technologie qui permet d’échanger des données à courte distance en approchant deux appareils.
-                            </p>
-                            <p class="exemple">
-                                Le paiement sans contact avec une carte bancaire repose sur la technologie NFC.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+        <section id="N">
+            <div class="section__content border-properties" id="nft" data-domaine="divertissement" data-usage="avance" data-ia="no">
+                <h2>NFT</h2>
+                <img src="https://images.prismic.io/latelier-website/18b80600-af96-4161-986e-a7d20ad68613_NonFungible+NFT+Report.png?auto=compress%2Cformat&w=1800">
+                <p>
+                    (Non-Fungible <a href="#token">Token</a>)<br><br>
 
-            <!-- LETTRE O -->
-            <li class="letter-cat closed">
+                    Les NFT sont apparus avec <a href="#cryptomonnaie">Ethereum</a> en 2017.<br>
+                    Ils permettent d’attribuer une valeur unique et traçable à des objets numériques (image, musique, etc.) sur la blockchain.
+                </p>
+                <p class="exemple">
+                    Une œuvre numérique vendue 1 million de dollars sous forme de NFT.<br>
+                    Des artistes créent et vendent des éditions limitées numériques.
+                </p>
+            </div>
 
-                <h3 class="letter-cat__lettre">O</h3>
+            <div class="section__content border-properties" id="nfc" data-domaine="informatique internet donnees" data-usage="quotidien" data-ia="no">
+                <h2>NFC</h2>
+                <img src="https://www.asiarfid.com/wp-content/uploads/2020/06/nfc.jpg">
+                <p>
+                    (Near Field Communication)<br><br>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Métavers-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Ordinateur quantique
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Un ordinateur quantique est un type d’ordinateur qui utilise des qubits (au lieu des bits classiques) et les principes de la physique quantique pour résoudre des calculs extrêmement complexes.
-                            </p>
-                            <p class="exemple">
-                                Google travaille sur un ordinateur quantique capable de résoudre en quelques secondes des calculs qui prendraient des années à un supercalculateur classique.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+                    Le NFC est une technologie de communication sans fil à très courte portée (quelques centimètres).
+                    Elle permet à deux appareils de s’échanger des données simplement en les approchant. On l’utilise
+                    surtout pour les paiements sans contact, les titres de transport ou le partage rapide d’informations.
+                </p>
+                <p class="exemple">
+                    Tu approches ton smartphone d’un terminal pour payer, sans carte ni code.<br>
+                    Tu transfères une photo à un ami en collant vos téléphones via NFC.
+                </p>
+            </div>
 
-            <!-- LETTRE R -->
-            <li class="letter-cat closed">
 
-                <h3 class="letter-cat__lettre">R</h3>
+        </section>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Réalité virtuelle (VR)-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Réalité virtuelle (VR)
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                La réalité virtuelle est une technologie qui plonge l’utilisateur dans un environnement 100 % numérique grâce à un casque VR.                                </p>
-                            <p class="exemple">
-                                Jouer à un jeu vidéo immersif avec un casque Oculus Quest.
-                            </p>
-                        </div>
-                    </li>
+        <section id="O">
+            <div class="section__content border-properties" id="ordi-quantique" data-domaine="informatique donnees" data-usage="avance" data-ia="no">
+                <h2>Ordinateur quantique</h2>
+                <img src="https://img.freepik.com/photos-premium/vue-rapprochee-bits-quantiques-ordinateur-quantique_916191-203243.jpg?semt=ais_hybrid">
+                <p>
+                    C’est un type d’ordinateur qui fonctionne selon les lois de la mécanique quantique.
+                    Contrairement aux ordinateurs classiques qui utilisent des bits (0 ou 1), l’ordinateur
+                    quantique utilise des qubits, qui peuvent être 0 <span style="font-weight: 600;">et</span> 1 en même temps. Cela lui permet
+                    d’explorer plusieurs solutions à un problème à la fois, et de résoudre certains calculs
+                    bien plus rapidement.
+                </p>
+                <p class="exemple">
+                    Il pourrait simuler le comportement d’une molécule pour créer de nouveaux médicaments.<br>
+                    Il peut résoudre des problèmes d’optimisation complexes, comme planifier des milliers de livraisons.
+                </p>
+            </div>
+        </section>
 
-                    <!--Réalité augmentée (AR)-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Réalité augmentée (AR)
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                La réalité augmentée superpose des éléments numériques à notre environnement réel à l’aide d’un écran (smartphone, lunettes connectées).
-                            </p>
-                            <p class="exemple">
-                                Pokémon GO, où les Pokémon apparaissent dans le monde réel via l’écran du téléphone.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+        <section id="P">
+            <div class="section__content border-properties" data-domaine="informatique" data-usage="avance" data-ia="no">
+                <h2>Perceptron</h2>
+                <img src="">
+                <p>
+                    Inventé en 1957 par Frank Rosenblatt, le perceptron est un modèle mathématique inspiré du neurone biologique.<br>
+                    C’est l’un des premiers algorithmes d’apprentissage automatique, base des réseaux de neurones modernes.
+                </p>
+                <p class="exemple">
+                    Un perceptron peut apprendre à distinguer des photos de chats et de chiens.<br>
+                    Il ajuste ses poids à chaque erreur pour mieux classer les données.
+                </p>
+            </div>
+        </section>
 
-            <!-- LETTRE S -->
-            <li class="letter-cat closed">
+        <section id="R"><div class="section__content border-properties" data-domaine="internet divertissement objets-immateriels" data-usage="avance" data-ia="no">
+            <h2>Réalité augmentée (AR)</h2>
+            <img src="https://uploads-ssl.webflow.com/6363927cadc09d0ed60ee39a/6363a3ff4e99ea344fd4c104_6306539e23190b32d7f57a63_3FEM_dDojDU4P7-BcgSyrMYTtMmwdQ4dmbkSsZbgXd_ryIl_kVbxP91Bsn9qrBahGSmM4RSRHRLCT1bxhX5kJrUoaRZDV-aNSi3Y__OBvl7H5ab32MI_0Xu9IkIoIfMgCxKNN8molDkwmapQ83YwMbw.jpeg">
+            <p>
+                Popularisée par les Google Glass ou Pokémon Go, l’AR est née dans les années 1990.<br>
+                Elle enrichit la vision du réel avec des éléments numériques.
+            </p>
+            <p class="exemple">
+                Une appli montre comment un meuble rendrait dans ton salon.<br>
+                Un chirurgien visualise des informations superposées pendant une opération.
+            </p>
+        </div>
 
-                <h3 class="letter-cat__lettre">S</h3>
+            <div class="section__content border-properties" data-domaine="internet divertissement objets-immateriels" data-usage="avance" data-ia="no">
+                <h2>Réalité virtuelle (VR)</h2>
+                <img src="https://cdn.mos.cms.futurecdn.net/dvsz26bTACXNxidkBaCCaS-1200-80.jpg">
+                <p>
+                    La VR a été imaginée dès les années 1960 (avec le casque "Sword of Damocles"), mais elle s’est démocratisée dans les années 2010.<br>
+                    Elle immerge complètement l’utilisateur dans un monde numérique.
+                </p>
+                <p class="exemple">
+                    Tu visites virtuellement un appartement avant de l’acheter.<br>
+                    Tu explores une autre planète dans un jeu vidéo immersif.
+                </p>
+            </div>
+        </section>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Smart contract-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Smart contract
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Un smart contract est un programme informatique stocké sur une blockchain qui exécute automatiquement un contrat dès que certaines conditions sont remplies, sans intermédiaire.
-                            </p>
-                            <p class="exemple">
-                                Un prêt en cryptomonnaie qui se débloque automatiquement dès qu’une garantie est fournie.
-                            </p>
-                        </div>
-                    </li>
+        <section id="S">
+            <div class="section__content border-properties" data-domaine="informatique internet donnees objets-immateriels" id="smart-contract" data-usage="quotidien" data-ia="no">
+                <h2>Smart Contract</h2>
+                <img src="https://blog.cfte.education/wp-content/uploads/2023/03/How-Do-Smart-Contracts-Work_-CFTE.png">
+                <p>
+                  Un Smart Contract (ou « contrat intelligent ») est un programme informatique qui repose sur la
+                  technologie <a href="#blockchain">blockchain</a>. Il exécute automatiquement les termes d’un
+                  contrat dès que les conditions définies sont remplies.
 
-                    <!--Serveur DNS-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Serveur DNS
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                serveur
-                            </p>
-                            <p class="exemple">
-                                serveur
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+                  Ces contrats sont infalsifiables car une fois inscrits sur la blockchain, leurs règles ne peuvent plus
+                  être modifiées. Cela garantit transparence, fiabilité et absence d’intermédiaire (comme un notaire ou
+                  une banque).
+                </p>
+                <p class="exemple">
+                    Un artiste peut vendre une œuvre sous forme de <a href="#nft">NFT</a> via un smart contract : dès que l’acheteur paie,
+                    l’œuvre est automatiquement transférée, sans intervention humaine.
+                </p>
+            </div>
+        </section>
 
-            <!-- LETTRE V -->
-            <li class="letter-cat closed">
+        <section id="T">
+            <div class="section__content border-properties" id="token" data-domaine="objets-immateriels " data-usage="avance" data-ia="no">
+                <h2>Token</h2>
+                <img src="https://changelly.com/blog/wp-content/uploads/2022/07/1HoZuFyIEnLhBS7_jBHAHxw.jpeg">
+                <p>
+                    Un token est un actif numérique associé à une <a href="#blockchain">blockchain</a>. Il peut avoir
+                    plusieurs fonctions :
+                    représenter une monnaie (comme un jeton d’échange), un droit (comme un droit de vote dans un projet),
+                    un bien (comme un objet dans un jeu), ou un certificat de propriété (comme un NFT).
+                </p>
+                <p class="exemple">
+                    Un token permet d’accéder à une plateforme en ligne réservée à ses détenteurs.<br>
+                    Certains tokens donnent un pouvoir de décision dans une communauté en ligne.
+                </p>
+            </div>
+        </section>
 
-                <h3 class="letter-cat__lettre">V</h3>
+        <section id="V">
+            <div class="section__content border-properties" data-domaine="donnees objets-physiques" data-usage="quotidien" data-ia="yes">
+                <h2>Véhicule autonome</h2>
+                <img src="https://www.alain-bensoussan.com/wp-content/uploads/2018/05/34232797-1.jpg">
+                <p>
+                    L’idée existe depuis les années 1930, mais les premiers prototypes sérieux sont apparus dans les années 2000.<br>
+                    Ils combinent IA, caméras et capteurs pour se déplacer sans conducteur.
+                </p>
+                <p class="exemple">
+                    Une navette autonome circule en zone urbaine.<br>
+                    Le véhicule adapte sa vitesse en fonction des limitations détectées.
+                </p>
+            </div>
 
-                <ul class="letter-cat__items">
-                    
-                    <!--Métavers-->
-                    <li class="letter-cat__item closed">
-                        <div>
-                            <h4 class="letter-cat__item__title">Véhicule autonome
-                                <button class="letter-cat__item__close closed"></button>
-                            </h4>
-                        </div>                         
-                        <div class="letter-cat__item__content">
-                            <p>
-                                Un véhicule autonome est une voiture capable de rouler sans conducteur grâce à des capteurs et une intelligence artificielle qui analysent l’environnement en temps réel.                                </p>
-                            <p class="exemple">
-                                Google développe des voitures autonomes.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+            <div class="section__content border-properties" data-domaine="informatique internet donnees objets-immateriels" data-usage="quotidien" data-ia="no">
+                <h2>Virus informatique</h2>
+                <img src="https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/what_is_malware_academy_refresh/Types-of-Malware-EN.png?width=1684&height=1200&name=Types-of-Malware-EN.png">
+                <p>
+                    Un virus informatique est un programme malveillant conçu pour se propager d’un appareil à un autre, souvent à l’insu de l’utilisateur, et perturber le fonctionnement du système.<br>
+                    Le premier virus, “Creeper”, est apparu en 1971. Apparaît ensuite le premier <a href="#antivirus">antivirus</a> “Reaper”.
+                </p>
+                <p class="exemple">
+                    Un virus se cache dans une pièce jointe d’e-mail et infecte ton ordinateur quand tu l’ouvres.<br>
+                    Un ransomware chiffre tes données et demande une rançon pour les débloquer.
+                </p>
+            </div>
+        </section>
+
+        <section id="W">
+            <div class="section__content border-properties" id="wallet" data-domaine="informatique internet finance objets-immateriels" data-usage="avance" data-ia="no">
+                <h2>Wallet numérique personnel</h2>
+                <img src="https://101blockchains.com/wp-content/uploads/2022/12/Features-of-Cryptocurrency-Wallets-1024x1024.png">
+                <p>
+                    Un wallet numérique personnel est un outil, souvent sous forme d’application ou de clé physique, qui permet de stocker, envoyer et recevoir des <a href="#cryptomonnaie">cryptomonnaies</a> comme le Bitcoin ou l’Ethereum.<br>
+                    Il est apparu avec le Bitcoin en 2009 pour offrir à chacun le contrôle direct de ses actifs numériques, sans intermédiaire bancaire.
+                </p>
+                <p class="exemple">
+                    Tu utilises un wallet sur ton téléphone pour payer en cryptomonnaie dans un magasin.<br>
+                    Tu sécurises tes fonds avec un wallet physique, coupé d’<a href="#internet">internet</a> pour éviter les piratages.<br>
+                    MetaMask est un portefeuille logiciel de cryptomonnaie utilisé pour interagir avec la blockchain Ethereum.
+                </p>
+            </div>
+
+            <div class="section__content border-properties" id="wifi" data-domaine="informatique internet objets-physiques" data-usage="quotidien" data-ia="no">
+                <h2>Wi-Fi</h2>
+                <img src="https://www.atcnet.net/wp-content/uploads/2023/01/WiFi-vs-Internet-illustration.jpg">
+                <p>
+                    Le Wi-Fi est une technologie qui permet à des appareils (ordinateur, téléphone, tablette…) de
+                    se connecter à Internet sans câble. Il fonctionne grâce à un signal radio envoyé par une box
+                    ou un routeur. Le Wi-Fi est devenu indispensable à la maison, au travail ou dans les lieux publics
+                    pour accéder au web librement et sans fil.
+                </p>
+                <p class="exemple">
+                    Tu connectes ton ordinateur au Wi-Fi pour regarder une série chez toi.<br>
+                    Dans un hôtel, le Wi-Fi te permet de télétravailler sans utiliser ton forfait mobile.
+                </p>
+            </div>
+        </section>
+
+
+    </main>
 
     <script src="script.js"></script>
+
 </body>
 </html>

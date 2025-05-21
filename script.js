@@ -1,146 +1,225 @@
-// Le titre se redimensionne lorsqu'il est scrollé
-window.addEventListener("scroll", function() {
-    let scrollPosition = window.scrollY;
-    let title = document.getElementById("dynamicTitle");
+// BARRE DE NAVIGATION - LETTRES CRÉES EN FONCTION DES SECTIONS EXISTANTES
+document.addEventListener("DOMContentLoaded", function () {
+    const nav = document.querySelector('nav');
+    const sections = document.querySelectorAll('main section');
 
-    let maxScroll = 150;
+    sections.forEach(section => {
+        const id = section.getAttribute('id');
+        if (id) {
+            const link = document.createElement('a');
+            link.className = 'nav__letter border-properties';
+            link.href = `#${id}`;
+            link.textContent = id;
+            nav.appendChild(link);
+        }
+    });
 
-    if (scrollPosition > maxScroll) {
-        title.style.fontSize = "30px";
-        title.style.top = "25px";
-        title.style.textTransform = "uppercase";
-        title.style.color = "#cae799"
-    } else {
-        title.style.fontSize = "100px";
-        title.style.top = "var(--title-top-position)";
-        title.style.textTransform = "lowercase";
-        title.style.color = "#d7f6a2"
-    }
+    const letters = document.querySelectorAll(".nav__letter");
 
-    title.style.transition = "font-size 0.25s ease, top 0.25s ease, text-transform 0.25s ease";
-});
+    let manualClick = false;
+    let lastScrollY = window.scrollY;
 
-// Ouverture et Fermeture de l'onglet lettre
-const $lettres = document.querySelectorAll('h3.letter-cat__lettre');
+    // GESTION DU CLIC SUR LES LETTRES
+    letters.forEach(letter => {
+        letter.addEventListener("click", function () {
+            letters.forEach(l => l.classList.remove("clicked"));
+            this.classList.add("clicked");
 
-$lettres.forEach(($lettre) => {
-    $lettre.addEventListener('click', () => {
-        console.log("click lettre");
-        const $letterCat = $lettre.parentNode;
+            // Empêche le scroll automatique de modifier l'état trop vite
+            manualClick = true;
+            setTimeout(() => manualClick = false, 1000);
+        });
+    });
 
-        // Close all other sections before opening the clicked one
-        document.querySelectorAll('.letter-cat').forEach(($otherLetterCat) => {
-            if ($otherLetterCat !== $letterCat) {
-                $otherLetterCat.classList.add('closed');
+    // scroll avec marge pour viser le centre de l'écran
+    const observer = new IntersectionObserver((entries) => {
+        if (manualClick) return;
+
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                const link = document.querySelector(`.nav__letter[href="#${id}"]`);
+                if (!link) return;
+
+                const scrollingDown = window.scrollY > lastScrollY;
+                lastScrollY = window.scrollY;
+
+                const bounds = entry.boundingClientRect;
+                const screenMiddle = window.innerHeight / 2;
+
+                const isTriggerPoint =
+                    (scrollingDown && bounds.top <= screenMiddle && bounds.top > 0) ||
+                    (!scrollingDown && bounds.bottom >= screenMiddle && bounds.bottom < window.innerHeight);
+
+                if (isTriggerPoint) {
+                    letters.forEach(l => l.classList.remove("clicked"));
+                    link.classList.add("clicked");
+                }
             }
         });
+    }, {
+        root: null,
+        rootMargin: "-50% 0px -50% 0px", // vise le centre
+        threshold: 0
+    });
 
-        // Toggle the clicked section
-        $letterCat.classList.toggle('closed');
+    sections.forEach(section => observer.observe(section));
+});
+
+
+
+
+
+// INTERACTIONS DES FILTRES
+document.addEventListener("DOMContentLoaded", function () {
+    const filterGroups = document.querySelectorAll("#header__bottom__filters__buttons > div");
+    const filterContents = document.querySelectorAll("#header__bottom__filters__content > div");
+
+    filterGroups.forEach(group => {
+        const button = group.querySelector("button");
+        const countDisplay = group.querySelector("p");
+
+        group.addEventListener("click", function () {
+            const contentId = button.id.replace("button", "content");
+            const content = document.getElementById(contentId);
+            const isActive = group.classList.contains("clicked");
+
+            // Reset tous les groupes et contenus
+            filterGroups.forEach(g => g.classList.remove("clicked"));
+            filterContents.forEach(cnt => cnt.classList.remove("clicked"));
+
+            if (!isActive) {
+                group.classList.add("clicked");
+                content.classList.add("clicked");
+            }
+
+            // Fonction pour maj le compteur
+            function updateCount() {
+                const selectedButtons = content.querySelectorAll("button.clicked");
+                countDisplay.textContent = selectedButtons.length > 0 ? selectedButtons.length : "0";
+            }
+
+            // Ajouter listeners sur les boutons de filtre dans le contenu
+            content.querySelectorAll("button").forEach(filterBtn => {
+                filterBtn.addEventListener("click", function (e) {
+                    e.stopPropagation(); // Pour éviter de fermer/ouvrir le contenu en cliquant dans les boutons enfants
+
+                    if (this.id.includes("none")) {
+                        content.querySelectorAll("button").forEach(btn => btn.classList.remove("clicked"));
+                    } else {
+                        this.classList.toggle("clicked");
+                        content.querySelector("button[id*='none']")?.classList.remove("clicked");
+                    }
+
+                    updateCount();
+                });
+            });
+        });
     });
 });
 
 
-// Ouverture et Fermeture du mot au sein de la lettre
-const $letterCatClose = document.querySelectorAll('.letter-cat__item__close');
-console.log($letterCatClose);
+// SYSTÈME DE FILTRAGE DES ÉLÉMENTS
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('#header__bottom__filters__content button');
+    const contentSections = document.querySelectorAll('.section__content');
 
-$letterCatClose.forEach(($catClose) => {
-    $catClose.addEventListener('click', () => {
-        console.log("click cat close");
+    const activeFilters = {
+        type: null,
+        domaine: null,
+        usage: null,
+        ia: null
+    };
 
-        // Find the parent element that needs to be toggled
-        const $letterCatItem = $catClose.closest('.letter-cat__item');
-        console.log($letterCatItem);
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filterGroup = button.dataset.filter;
+            const filterValue = button.dataset.value;
 
-        if ($letterCatItem.classList.contains('closed')) {
-            console.log("est closed");
-            $letterCatItem.classList.remove('closed');
-            $catClose.classList.remove('closed');
-        } else {
-            console.log("n'est pas closed");
-            $letterCatItem.classList.add('closed');
-            $catClose.classList.add('closed');
-        }
+            // Si le filtre actuel est déjà sélectionné, on le désélectionne
+            if (activeFilters[filterGroup] === filterValue) {
+                activeFilters[filterGroup] = null;
+                button.classList.add('clicked');
+
+            } else {
+            // Sinon, on sélectionne ce filtre
+                activeFilters[filterGroup] = (filterValue === 'none') ? null : filterValue;
+                button.classList.remove('clicked');
+            }
+
+            applyFilters();
+        });
+    });
+
+    function applyFilters() {
+        contentSections.forEach(section => {
+            let visible = true;
+
+            // Si tous les filtres sont "null", on affiche tous les éléments
+            if (Object.values(activeFilters).every(value => value === null)) {
+                section.style.display = 'block';
+                return;
+            }
+
+            // Vérifie chaque filtre actif
+            for (const [filter, value] of Object.entries(activeFilters)) {
+                if (value !== null) {
+                    const dataAttr = section.dataset[filter];
+                    // Si l'élément ne correspond pas à l'un des filtres actifs, elle est masquée
+                    if (!dataAttr || !dataAttr.split(' ').includes(value)) {
+                        visible = false;
+                        break;
+                    }
+                }
+            }
+
+            section.style.display = visible ? 'block' : 'none';
+        });
+    }
+});
+
+// BARRE DE RECHERCHE POUR TOUT LE CONTENU
+document.addEventListener('DOMContentLoaded', () => {
+    const searchBar = document.getElementById('header__top__search-bar');
+    const contentCards = document.querySelectorAll('.section__content');
+
+    searchBar.addEventListener('input', () => {
+        const searchTerm = searchBar.value.toLowerCase();
+
+        contentCards.forEach(card => {
+            const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
+            const paragraphs = card.querySelectorAll('p');
+            let matchFound = title.includes(searchTerm);
+
+            // Si pas encore trouvé, chercher dans les paragraphes
+            if (!matchFound) {
+                paragraphs.forEach(p => {
+                    if (p.textContent.toLowerCase().includes(searchTerm)) {
+                        matchFound = true;
+                    }
+                });
+            }
+
+            // Affiche ou masque la carte selon le résultat
+            card.style.display = matchFound ? 'block' : 'none';
+        });
     });
 });
 
-/*
-function toggleContent(id) {
-    const letterContent = document.getElementById(id);
-    const letterBlock = letterContent.previousElementSibling;
 
-    document.querySelectorAll('.hiddenContent').forEach(content => {
-        if (content.id !== id) {
-            content.style.display = "none";
-            content.style.width = "0";
 
-            const block = content.previousElementSibling;
-            block.style.width = "100%";
-            block.style.height = "auto";
-            block.style.textAlign = "";
-            block.style.lineHeight = "";
-            block.style.fontSize = "";
-            block.style.fontWeight = "";
+// LA PASTÈQUE TOURNE EN FONCTION DU SCROLL
+document.addEventListener('DOMContentLoaded', () => {
+    window.onscroll = function rotateScroll() {
+        turningWatermelon();
+    };
+    
+    function turningWatermelon() {
+        const image = document.getElementById("header__top__img");
+        if (!image) return;
 
-            block.style.transition = "width 0.25s ease, height 0.25s ease, text-align 0.25s ease, line-height 0.25s ease, font-size 0.25s ease, font-weight 0.25s ease";
-            content.style.transition = "width 0.25s ease, height 0.25s ease";
-        }
-    });
-
-    // Toggle visibility of the corresponding letterContent
-    if (letterContent.style.display === "block") {
-        letterContent.style.display = "none";
-        letterContent.style.width = "0"
-
-        letterBlock.style.width = "100%";
-        letterBlock.style.height = "auto";
-        letterBlock.style.textAlign = "";
-        letterBlock.style.lineHeight = "";
-        letterBlock.style.fontSize = "";
-        letterBlock.style.fontWeight = "";
-
-        letterBlock.style.transition = "width 0.25s ease, height 0.25s ease, text-align 0.25s ease, line-height 0.25s ease, font-size 0.25s ease, font-weight 0.25s ease";
-        letterContent.style.transition = "width 0.25s ease, height 0.25s ease";
-
+        const rotation = window.scrollY / 5; // Ajuste la vitesse ici
+        image.style.transform = `rotate(${rotation}deg)`;
+        image.style.transition = "transform 50ms linear";
     }
-    else {
-        letterContent.style.display = "block";
-        letterContent.style.width = "67%";
-
-        letterBlock.style.width = "30%";
-        letterBlock.style.height = "var(--height-letter-block)";
-        letterBlock.style.textAlign = "center";
-        letterBlock.style.lineHeight = "var(--height-letter-block)";
-        letterBlock.style.fontSize = "30px";
-        letterBlock.style.fontWeight = "500";
-
-        letterBlock.style.transition = "width 0.5s ease, height 0.5s ease, text-align 0.5s ease, line-height 0.5s ease, font-size 0.5s ease, font-weight 0.5s ease";
-        letterContent.style.transition = "width 0.5s ease, height 0.5s ease";
-    }
-}
-
-function toggleButton(contentId) {
-    const glossaryContent = document.getElementById(contentId);
-    const button = glossaryContent?.previousElementSibling; // Get the button
-    const img = button?.querySelector("img"); // Get the image inside the button
-
-    if (!glossaryContent) {
-        console.error(`Element with ID '${contentId}' not found.`);
-        return;
-    }
-
-    if (glossaryContent.style.display === "block") { 
-        glossaryContent.style.display = "";
-        if (img) img.style.transform = "rotate(0deg)";
-    }
-
-    else {
-        glossaryContent.style.display = "block";
-        if (img) img.style.transform = "rotate(180deg)";
-    }
-
-    img.style.transition = "transform 0.5s ease";
-
-}
-*/
+});
